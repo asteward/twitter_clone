@@ -15,6 +15,7 @@ class PostsController < ApplicationController
         format.js
       end
     else
+      
       flash.now.alert = "<strong>'Ey!</strong> Check dat again, mon."
       render 'new'
     end
@@ -22,7 +23,7 @@ class PostsController < ApplicationController
 
 private
 
-  def answer_params
+  def post_params
     params.require(:post).permit(:text)
   end
 end

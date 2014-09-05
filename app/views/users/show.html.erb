@@ -1,6 +1,13 @@
 <h1> <%= @user.username %><span class="handle">(<%= @user.handle %>)</span></h1>
 <hr>
 <% if @user %>
+
+  <div id="all_posts">
+    <h3>tweets</h3>
+    <% @user.posts.each do |post| %>
+      <p><%= @user.username %> - <%= post.text %></p>
+    <% end %>
+  </div>
   <div id="new_post">
     <%= link_to "tweet", new_user_post_path(@user), class: "btn btn-success", id: "post_link", remote: true %>
   </div>
