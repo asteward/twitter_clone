@@ -8,8 +8,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      UserMailer.signup_confirmation(@user).deliver
       flash[:notice] = "Thanks for signing up, <strong>#{@user.username}!</strong>".html_safe
-      redirect_to posts_path
+      redirect_to login_path
     else
       flash[:alert] = "<strong>Whoa!</strong> Let's take another look...".html_safe
       render 'new'

@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:notice] = "<strong>Hey, #{user.username}!</strong> Check out our cool new posts!".html_safe
-      redirect_to posts_path
+      redirect_to signup_path
     else
       flash.now.alert = "<strong>Oops!</strong> Check that username and password again.".html_safe
       render 'new'
@@ -18,6 +18,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     flash[:notice] = "Logged out!"
-    redirect_to root_path
+    redirect_to login_path
   end
 end
