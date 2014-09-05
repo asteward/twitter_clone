@@ -20,5 +20,15 @@
   <div class="container">
     <%= yield %>
   </div>
+
+  <hr>
+
+  <% if current_user %>
+      <%= link_to "logout", logout_path("current"), method: "get", class: "btn btn-danger" %>
+      Logged in as <strong><%= current_user.username %>.</strong>
+    <% else %>
+      <%= link_to "signup", signup_path, class: "btn btn-info" %>
+      <%= link_to "login", login_path, class: "btn btn-success" %>
+    <% end %>
 </body>
 </html>
