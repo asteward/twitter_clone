@@ -1,2 +1,7 @@
 <h1> <%= @user.username %><span class="handle">(<%= @user.handle %>)</span></h1>
 <hr>
+<% if @user %>
+  <div id="new_post">
+    <%= link_to "tweet", new_user_post(@user), class: "btn btn-success", id: "post_link", remote: true %>
+  </div>
+<% end %>
