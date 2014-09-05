@@ -5,14 +5,3 @@
   </div>
   <%= f.submit "reply", :class => "btn btn-primary", :id => "reply" %>
 <% end %>
-
-
-
-<%= form_for [@question, @answer], remote: true do |f| %>
-  <%= hidden_field_tag("answer[user_id]", value = @user.id) %>
-  <div class="form-group">
-    <%= f.label "answer" %>
-    <%= f.text_area :text, class: "form-control" %>
-  </div>
-  <%= f.submit "reply", :class => "btn btn-primary super-submit", :id => "reply" %>
-<% end %>
