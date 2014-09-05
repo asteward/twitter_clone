@@ -2,6 +2,6 @@
 <hr>
 <% if @user %>
   <div id="new_post">
-    <%= link_to "tweet", new_user_post(@user), class: "btn btn-success", id: "post_link", remote: true %>
+    <%= link_to "tweet", new_user_post_path(@user), class: "btn btn-success", id: "post_link", remote: true %>
   </div>
 <% end %>
