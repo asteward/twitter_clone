@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:notice] = "<strong>Hey, #{user.username}!</strong> Check out our cool new posts!".html_safe
-      redirect_to signup_path
+      redirect_to user_path(user)
     else
       flash.now.alert = "<strong>Oops!</strong> Check that username and password again.".html_safe
       render 'new'
