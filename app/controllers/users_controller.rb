@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       UserMailer.signup_confirmation(@user).deliver
       flash[:notice] = "Thanks for signing up, <strong>#{@user.username}!</strong>".html_safe
-      redirect_to login_path
+      redirect_to user_path(@user)
     else
       flash[:alert] = "<strong>Whoa!</strong> Let's take another look...".html_safe
       render 'new'
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    
+
   end
 
 private

@@ -12,4 +12,11 @@ class UserMailer < ActionMailer::Base
 
     mail to: user.email, subject: "Welcome to TwitterClone, #{@user.username}!"
   end
+
+  def tag_confirmation(user, tagger)
+    @user = user
+    @greeting = "#{user.username} - You have been tagged by #{tagger.username}!!! MUHUHAHAHAHAHAHAHAHAHAHAHA!!!! >;P"
+
+    mail to: user.email, subject: "You been tagged!"
+  end
 end
