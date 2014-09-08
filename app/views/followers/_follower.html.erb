@@ -1,0 +1,1 @@
+<%= link_to "unfollow", user_follower_path(@user, Follower.find_by(user_id: @user.id, follower_id: @current_user.id)), method: 'delete', class: "btn btn-danger btn-sm", remote: true %>
