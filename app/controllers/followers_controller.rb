@@ -22,6 +22,5 @@ class FollowersController < ApplicationController
     @user = User.find(params[:user_id])
     @follower = @user.followers.find_by(follower_id: current_user.id)
     @follower.delete
-    redirect_to user_path(@user)
   end
 end
