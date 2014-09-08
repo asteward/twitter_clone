@@ -9,6 +9,7 @@ class FollowersController < ApplicationController
     @current_user = current_user
     @following = @user.followers.new(follower_id: @current_user.id)
     if @following.save
+      UserMailer.new_follower_notice(@user, current_user).deliver
       respond_to do |format|
         format.html { redirect_to user_path(@user) }
         format.js

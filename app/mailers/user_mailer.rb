@@ -19,4 +19,10 @@ class UserMailer < ActionMailer::Base
 
     mail to: user.email, subject: "You been tagged!"
   end
+
+  def new_follower_notice(user, follower)
+    @greeting = "#{user.username}, just thought you'd like to know that #{follower.username} is now following your greatness! You now have #{user.followers.count} followers!"
+
+    mail to: user.email, subject: "Congrats on your new follower!!!"
+  end
 end

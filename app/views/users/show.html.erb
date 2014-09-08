@@ -1,5 +1,5 @@
 <h1> <%= @user.username %><span class="handle">(<%= @user.handle %>)</span></h1>
-<% if @current_user %>
+<% if @current_user && @user != @current_user %>
   <div id="following">
     <% if @user.followers.find_by(follower_id: @current_user.id) %>
       <%= link_to "unfollow", user_follower_path(@user, @user.followers.find_by(follower_id: @current_user.id)), id: "unfollow", method: 'delete', class: "btn btn-danger btn-sm", remote: true %>
